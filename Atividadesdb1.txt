@@ -1,5 +1,5 @@
-Exércicio 1:
-1) insert into estado(nome, uf) values ('São Paulo', 'SP')
+Exercicio 1:
+1) insert into estado(nome, uf) values ('SÃ£o Paulo', 'SP')
 
 2) insert into cidade(estado_id,nome) values('id', 'nome da cidade')
 
@@ -17,29 +17,29 @@ Exércicio 1:
 7) select count (id) from cidade
 select count (id) from cidade group by estado_id
 
-8) alter table Endereco add column tipo_endereço
-   insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereço) values (2, 'PR', '683','Anexo','Prédio','87020-035', 'Residencial')
-   insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereço) values (2, 'PR', '900','Anexo','Casa','324560-432', 'Comercial')
+8) alter table Endereco add column tipo_endereÃ§o
+   insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereÃ§o) values (2, 'PR', '683','Anexo','PrÃ©dio','87020-035', 'Residencial')
+   insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereÃ§o) values (2, 'PR', '900','Anexo','Casa','324560-432', 'Comercial')
 
 
-9) insert into pessoa_endereco(pessoa_id, endereço_id) values (id da pessoa, id do endereço)
+9) insert into pessoa_endereco(pessoa_id, endereÃ§o_id) values (id da pessoa, id do endereÃ§o)
    
    insert into Pessoa(nome,cpf) values('Paulo Guedes', 37834562070)
    insert into Pessoa(nome,cpf) values('Arthur Moledo do Val', 12288836962)
    insert into Pessoa(nome,cpf) values('Arthur Petry', 19966472029)
 
-10) insert into pessoa_endereco(pessoa_id, endereço_id) values (id da pessoa, id do endereço)
+10) insert into pessoa_endereco(pessoa_id, endereÃ§o_id) values (id da pessoa, id do endereÃ§o)
     
-    insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereço) values (1, 'SP', '730','Anexo','Condomínio','42320-123', 'Residencial')
-    insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereço) values (1, 'SP', '730','Anexo','Condomínio','42320-123', 'Comercial')
+    insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereÃ§o) values (1, 'SP', '730','Anexo','CondomÃ­nio','42320-123', 'Residencial')
+    insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereÃ§o) values (1, 'SP', '730','Anexo','CondomÃ­nio','42320-123', 'Comercial')
     
     insert into Pessoa(nome,cpf) values('Peter Parker', 46088836130)    
     insert into Pessoa(nome,cpf) values('Nando Moura', 88932836922)
 
-11) insert into pessoa_endereco(pessoa_id, endereço_id) values (id da pessoa, id do endereço)
+11) insert into pessoa_endereco(pessoa_id, endereÃ§o_id) values (id da pessoa, id do endereÃ§o)
     insert into Pessoa(nome,cpf) values('Arthur Petry', 37045036922)
     insert into Pessoa(nome,cpf) values('Tony Stark', 45033336520)
-    insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereço) values (3, 'SC', '422','Anexo','Prédio','23489-673', 'Comercial')
+    insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereÃ§o) values (3, 'SC', '422','Anexo','PrÃ©dio','23489-673', 'Comercial')
 
 
 12) select pes.nome, pes.id, cid.nome, uf.uf, pend.pessoa_id, pend.endereco_id
@@ -49,17 +49,17 @@ select count (id) from cidade group by estado_id
     and pend.pessoa_id = pend.endereco_id
     order by pes.nome, uf.uf, cid.nome
 
-13) delete from cidade where id = 13(id da cidade de Ribeirão Preto na minha tabela)
+13) delete from cidade where id = 13(id da cidade de RibeirÃ£o Preto na minha tabela)
 
 14) update Endereco set cep = 00000000
 
-15) insert into recibo(cidade_id, pessoa_id, emissor_id,descrição, data_recibo, Valor) values (ID da cidade,ID da pessoa,ID do emissor, nome do produto,Data, Valor)
-    insert into recibo(cidade_id, pessoa_id, emissor_id,descrição, data_recibo, Valor) values (2,2,4,'CPU','04/06/1998', '2000')
-    insert into recibo(cidade_id, pessoa_id, emissor_id,descrição, data_recibo, Valor) values (2,3,4,'CPU','04/06/1999', '2000') 
+15) insert into recibo(cidade_id, pessoa_id, emissor_id,descriÃ§Ã£o, data_recibo, Valor) values (ID da cidade,ID da pessoa,ID do emissor, nome do produto,Data, Valor)
+    insert into recibo(cidade_id, pessoa_id, emissor_id,descriÃ§Ã£o, data_recibo, Valor) values (2,2,4,'CPU','04/06/1998', '2000')
+    insert into recibo(cidade_id, pessoa_id, emissor_id,descriÃ§Ã£o, data_recibo, Valor) values (2,3,4,'CPU','04/06/1999', '2000') 
 
-16) insert into recibo(cidade_id, pessoa_id, emissor_id,descrição, data_recibo, Valor) values (ID da cidade,ID da pessoa,ID do emissor, nome do produto,Data, Valor)
-    insert into recibo(cidade_id, pessoa_id, emissor_id,descrição, data_recibo, Valor) values (2,3,4,'Caneta Preta','04/06/1998', '2000')
-    insert into recibo(cidade_id, pessoa_id, emissor_id,descrição, data_recibo, Valor) values (2,6,5,'CPU','04/06/1998', '2000')
+16) insert into recibo(cidade_id, pessoa_id, emissor_id,descriÃ§Ã£o, data_recibo, Valor) values (ID da cidade,ID da pessoa,ID do emissor, nome do produto,Data, Valor)
+    insert into recibo(cidade_id, pessoa_id, emissor_id,descriÃ§Ã£o, data_recibo, Valor) values (2,3,4,'Caneta Preta','04/06/1998', '2000')
+    insert into recibo(cidade_id, pessoa_id, emissor_id,descriÃ§Ã£o, data_recibo, Valor) values (2,6,5,'CPU','04/06/1998', '2000')
     
 
 
