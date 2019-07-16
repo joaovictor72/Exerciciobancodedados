@@ -1,0 +1,89 @@
+Exércicio 1:
+1) insert into estado(nome, uf) values ('São Paulo', 'SP')
+
+2) insert into cidade(estado_id,nome) values('id', 'nome da cidade')
+
+3) delete from estado where id  = (id do estado)
+
+4) insert into cidade(estado_id,nome) values('Id da cidade', 'Cidade')
+
+5) update cidade set nome = 'Lunardelli' where id = 7
+
+6) select cid.id, cid.nome, uf.uf
+	from cidade cid, estado uf
+   where uf.id = cid.estado_id
+   order by uf.uf, cid.nome
+
+7) select count (id) from cidade
+select count (id) from cidade group by estado_id
+
+8) alter table Endereco add column tipo_endereço
+   insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereço) values (2, 'PR', '683','Anexo','Prédio','87020-035', 'Residencial')
+   insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereço) values (2, 'PR', '900','Anexo','Casa','324560-432', 'Comercial')
+
+
+9) insert into pessoa_endereco(pessoa_id, endereço_id) values (id da pessoa, id do endereço)
+   
+   insert into Pessoa(nome,cpf) values('Paulo Guedes', 37834562070)
+   insert into Pessoa(nome,cpf) values('Arthur Moledo do Val', 12288836962)
+   insert into Pessoa(nome,cpf) values('Arthur Petry', 19966472029)
+
+10) insert into pessoa_endereco(pessoa_id, endereço_id) values (id da pessoa, id do endereço)
+    
+    insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereço) values (1, 'SP', '730','Anexo','Condomínio','42320-123', 'Residencial')
+    insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereço) values (1, 'SP', '730','Anexo','Condomínio','42320-123', 'Comercial')
+    
+    insert into Pessoa(nome,cpf) values('Peter Parker', 46088836130)    
+    insert into Pessoa(nome,cpf) values('Nando Moura', 88932836922)
+
+11) insert into pessoa_endereco(pessoa_id, endereço_id) values (id da pessoa, id do endereço)
+    insert into Pessoa(nome,cpf) values('Arthur Petry', 37045036922)
+    insert into Pessoa(nome,cpf) values('Tony Stark', 45033336520)
+    insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereço) values (3, 'SC', '422','Anexo','Prédio','23489-673', 'Comercial')
+
+
+12) select pes.nome, pes.id, cid.nome, uf.uf, pend.pessoa_id, pend.endereco_id
+    from pessoa pes, cidade cid, estado uf, pessoa_endereco pend
+    where uf.id = cid.estado_id
+    or pes.id = pend.endereco_id
+    and pend.pessoa_id = pend.endereco_id
+    order by pes.nome, uf.uf, cid.nome
+
+13) delete from cidade where id = 13(id da cidade de Ribeirão Preto na minha tabela)
+
+14) update Endereco set cep = 00000000
+
+15) insert into recibo(cidade_id, pessoa_id, emissor_id,descrição, data_recibo, Valor) values (ID da cidade,ID da pessoa,ID do emissor, nome do produto,Data, Valor)
+    insert into recibo(cidade_id, pessoa_id, emissor_id,descrição, data_recibo, Valor) values (2,2,4,'CPU','04/06/1998', '2000')
+    insert into recibo(cidade_id, pessoa_id, emissor_id,descrição, data_recibo, Valor) values (2,3,4,'CPU','04/06/1999', '2000') 
+
+16) insert into recibo(cidade_id, pessoa_id, emissor_id,descrição, data_recibo, Valor) values (ID da cidade,ID da pessoa,ID do emissor, nome do produto,Data, Valor)
+    insert into recibo(cidade_id, pessoa_id, emissor_id,descrição, data_recibo, Valor) values (2,3,4,'Caneta Preta','04/06/1998', '2000')
+    insert into recibo(cidade_id, pessoa_id, emissor_id,descrição, data_recibo, Valor) values (2,6,5,'CPU','04/06/1998', '2000')
+    
+
+
+
+17) select rec.id as numero_recibo,
+	   rec.data_recibo,
+       rec.valor,
+       cli.nome as nome_cliente,
+       uf_cli.nome as cliente_estado
+  from recibo rec, pessoa cli, pessoa_endereco pend_cli, endereco end_cli, cidade cid_cli, estado uf_cli
+ where cli.id = rec.pessoa_id 
+   and pend_cli.pessoa_id = cli.id
+   and pend_cli.endereco_id = end_cli.id
+   and cid_cli.id = end_cli.cidade_id 
+   and uf_cli.id = cid_cli.estado_id
+   and end_cli.tipo_endereco = 'Residencial'
+
+
+18) SELECT 
+recibo.estado_id, 
+recibo.id,
+count (id),
+ SUM(valor)
+FROM
+ recibo
+group by recibo.estado_id = 2
+
