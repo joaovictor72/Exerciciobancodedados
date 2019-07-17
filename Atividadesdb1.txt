@@ -42,12 +42,19 @@ select count (id) from cidade group by estado_id
     insert into Endereco(cidade_id, uf, numero,logradouro,complemento, cep, tipo_endereço) values (3, 'SC', '422','Anexo','Prédio','23489-673', 'Comercial')
 
 
-12) select pes.nome, pes.id, cid.nome, uf.uf, pend.pessoa_id, pend.endereco_id
-    from pessoa pes, cidade cid, estado uf, pessoa_endereco pend
-    where uf.id = cid.estado_id
-    or pes.id = pend.endereco_id
-    and pend.pessoa_id = pend.endereco_id
-    order by pes.nome, uf.uf, cid.nome
+12)     select  pes.nome as pessoa_nome,
+	pes.id,
+	cid.nome as cidade,
+	uf.uf,
+	pend.pessoa_id,
+	pend.endereco_id,
+        end.tipo_endereco
+        from pessoa pes, cidade cid, estado uf, pessoa_endereco pend, endereco end
+        where uf.id = cid.estado_id
+        and pes.id = pend.endereco_id
+        and pend.pessoa_id = pend.endereco_id
+        and end.tipo_endereco = 'Residencial'
+        order by pes.nome, uf.uf, cid.nome
 
 13) delete from cidade where id = 13(id da cidade de Ribeirão Preto na minha tabela)
 
